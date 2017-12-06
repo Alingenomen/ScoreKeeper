@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">ScoreKeeper</string>
+    <string name="initCounter">0</string>
+    <string name="buttonBeginText">Begin</string>
+    <string name="buttonStopText">stop</string>
+    <string name="buttonResetText">Reset</string>
+    <string name="buttonResultsText">Results</string>
+
+    <string name="goalsFilter">Goals</string>
+    <string name="cornersFilter">Corners</string>
+    <string name="offsidesFilter">Offsides</string>
+    <string name="foulsFilter">Fouls</string>
+    <string name="yellowFilter">Yellows</string>
+    <string name="redFilter">Reds</string>
+
+    <string name="filterPrompt">Choose a Filter</string>
+
+    <string-array name="filterArray">
+        <item>Goals</item>
+        <item>Corners</item>
+        <item>Offsides</item>
+        <item>Fouls</item>
+        <item>Yellow cards</item>
+        <item>Red cards</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.scorekeeper.MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/soccerfield" />
+
+    <LinearLayout
+        android:id="@+id/fullLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/teamsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/statsHeight"
+            tools:context=".MainActivity">
+
+            <LinearLayout
+                android:id="@+id/team1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/dividerView"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/logoTeam1"
+                    android:layout_width="@dimen/logoTeam1Dimension"
+                    android:layout_height="@dimen/logoTeam1Dimension"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/standardMargin8"
+                    android:src="@drawable/zultewaregem" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dividerView3"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="@dimen/standardMargin16"
+                    android:layout_marginRight="@dimen/standardMargin16"
+                    android:background="#323232" />
+
+                <LinearLayout
+                    android:id="@+id/goalsTeam1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/goalButtonTeam1"
+                        android:layout_width="@dimen/goalIconDimension"
+                        android:layout_height="@dimen/goalIconDimension"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/standardMargin8"
+                        android:background="@null"
+                        android:onClick="updateCounter"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/goalicon" />
+
+                    <TextView
+                        android:id="@+id/goalTextTeam1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="@dimen/standardMargin4"
+                        android:text="@string/initCounter"
+                        android:textSize="@dimen/counterTextSize"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dividerView1"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="@dimen/standardMargin4"
+                    android:layout_marginLeft="@dimen/standardMargin64"
+                    android:layout_marginRight="@dimen/standardMargin64"
+                    android:background="#323232" />
+
+                <RelativeLayout
+                    android:id="@+id/StatsTeam1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageButton
+                        android:id="@+id/offsideButtonTeam1"
+                        android:layout_width="@dimen/offsideIconWidth"
+                        android:layout_height="@dimen/offsideIconHeight"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/standardMargin8"
+                        android:background="@null"
+                        android:onClick="updateCounter"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/offsideicon" />
+
+                    <TextView
+                        android:id="@+id/offsideTextTeam1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/standardMargin16"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/initCounter"
+                        android:textSize="@dimen/counterTextSize"
+                        android:textStyle="bold" />
+
+                    <ImageButton
+                        android:id="@+id/cornerButtonTeam1"
+                        android:layout_width="@dimen/statsIconDimension"
+                        android:layout_height="@dimen/statsIconDimension"
+                        android:layout_below="@id/offsideButtonTeam1"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/standardMargin8"
+                        android:background="@null"
+                        android:onClick="updateCounter"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/cornericon" />
+
+                    <TextView
+                        android:id="@+id/cornerTextTeam1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/offsideTextTeam1"
+                        android:layout_marginRight="@dimen/standardMargin16"
+                        android:layout_marginTop="@dimen/standardMargin16"
+                        android:text="0"
+                        android:textSize="@dimen/counterTextSize"
+                        android:textStyle="bold" />
+
+                    <ImageButton
+                        android:id="@+id/foulButtonTeam1"
+                        android:layout_width="@dimen/statsIconDimension"
+                        android:layout_height="@dimen/statsIconDimension"
+                        android:layout_below="@id/cornerButtonTeam1"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/standardMargin8"
+                        android:background="@null"
+                        android:onClick="updateCounter"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/foulsicon" />
+
+                    <TextView
+                        android:id="@+id/foulTextTeam1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@id/cornerTextTeam1"
+                        android:layout_marginRight="@dimen/standardMargin16"
+                        android:layout_marginTop="@dimen/standardMargin16"
+                        android:text="@string/initCounter"
+                        android:textSize="@dimen/counterTextSize"
+                        android:textStyle="bold" />
+
+                    <ImageButton
+                        android:id="@+id/yellowButtonTeam1"
+                        android:layout_width="@dimen/statsIconDimension"
+                        android:layout_height="@dimen/statsIconDimension"
+                        android:layout_below="@id/foulButtonTeam1"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/standardMargin8"
+                        android:background="@null"
+                        android:onClick="updateCounter"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/yellowicon" />
+
+                    <TextView
+                        android:id="@+id/yellowTextTeam1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@id/foulTextTeam1"
+                        android:layout_marginRight="@dimen/standardMargin16"
+                        android:layout_marginTop="@dimen/standardMargin16"
+                        android:text="@string/initCounter"
+                        android:textSize="@dimen/counterTextSize"
+                        android:textStyle="bold" />
+
+                    <ImageButton
+                        android:id="@+id/redButtonTeam1"
+                        android:layout_width="@dimen/statsIconDimension"
+                        android:layout_height="@dimen/statsIconDimension"
+                        android:layout_below="@id/yellowButtonTeam1"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/standardMargin8"
+                        android:background="@null"
+                        android:onClick="updateCounter"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/redicon" />
+
+                    <TextView
+                        android:id="@+id/redTextTeam1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@id/yellowTextTeam1"
+                        android:layout_marginRight="@dimen/standardMargin16"
+                        android:layout_marginTop="@dimen/standardMargin16"
+                        android:text="@string/initCounter"
+                        android:textSize="@dimen/counterTextSize"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/dividerView"
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/standardMargin8"
+                android:layout_marginTop="@dimen/standardMargin32"
+                android:background="#323232" />
+
+            <LinearLayout
+                android:id="@+id/team2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/dividerView"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/logoTeam2Dimension"
+                    android:layout_height="@dimen/logoTeam2Dimension"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="@dimen/standardMargin8"
+                    android:src="@drawable/kaagent" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dividerView3"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="@dimen/standardMargin16"
+                    android:layout_marginRight="@dimen/standardMargin16"
+                    android:background="#323232" />
+
+                <LinearLayout
+                    android:id="@+id/goalsTeam2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/goalButtonTeam2"
+                        android:layout_width="@dimen/goalIconDimension"
+                        android:layout_height="@dimen/goalIconDimension"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/standardMargin8"
+                        android:background="@null"
+                        android:onClick="updateCounter"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/goalicon" />
+
+                    <TextView
+                        android:id="@+id/goalTextTeam2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="@dimen/standardMargin4"
+                        android:text="@string/initCounter"
+                        android:textSize="@dimen/counterTextSize"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="@dimen/standardMargin4"
+                    android:layout_marginLeft="@dimen/standardMargin64"
+                    android:layout_marginRight="@dimen/standardMargin64"
+                    android:background="#323232" />
+
+                <RelativeLayout
+                    android:id="@+id/offsideStatsTeam2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageButton
+                        android:id="@+id/offsideButtonTeam2"
+                        android:layout_width="@dimen/offsideIconWidth"
+                        android:layout_height="@dimen/statsIconDimension"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/standardMargin8"
+                        android:background="@null"
+                        android:onClick="updateCounter"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/offsideicon" />
+
+                    <TextView
+                        android:id="@+id/offsideTextTeam2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/initCounter"
+                        android:textSize="@dimen/counterTextSize"
+                        android:textStyle="bold" />
+
+                    <ImageButton
+                        android:id="@+id/cornerButtonTeam2"
+                        android:layout_width="@dimen/statsIconDimension"
+                        android:layout_height="@dimen/statsIconDimension"
+                        android:layout_below="@id/offsideButtonTeam2"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/standardMargin8"
+                        android:background="@null"
+                        android:onClick="updateCounter"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/cornericon" />
+
+                    <TextView
+                        android:id="@+id/cornerTextTeam2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@id/offsideTextTeam2"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="@dimen/standardMargin16"
+                        android:text="@string/initCounter"
+                        android:textSize="@dimen/counterTextSize"
+                        android:textStyle="bold" />
+
+                    <ImageButton
+                        android:id="@+id/foulButtonTeam2"
+                        android:layout_width="@dimen/statsIconDimension"
+                        android:layout_height="@dimen/statsIconDimension"
+                        android:layout_below="@id/cornerButtonTeam2"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/standardMargin8"
+                        android:background="@null"
+                        android:onClick="updateCounter"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/foulsicon" />
+
+                    <TextView
+                        android:id="@+id/foulTextTeam2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@id/cornerTextTeam2"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="@dimen/standardMargin16"
+                        android:text="@string/initCounter"
+                        android:textSize="@dimen/counterTextSize"
+                        android:textStyle="bold" />
+
+                    <ImageButton
+                        android:id="@+id/yellowButtonTeam2"
+                        android:layout_width="@dimen/statsIconDimension"
+                        android:layout_height="@dimen/statsIconDimension"
+                        android:layout_below="@id/foulButtonTeam2"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/standardMargin8"
+                        android:background="@null"
+                        android:onClick="updateCounter"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/yellowicon" />
+
+                    <TextView
+                        android:id="@+id/yellowTextTeam2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@id/foulTextTeam2"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="@dimen/standardMargin16"
+                        android:text="@string/initCounter"
+                        android:textSize="@dimen/counterTextSize"
+                        android:textStyle="bold" />
+
+                    <ImageButton
+                        android:id="@+id/redButtonTeam2"
+                        android:layout_width="@dimen/statsIconDimension"
+                        android:layout_height="@dimen/statsIconDimension"
+                        android:layout_below="@id/yellowButtonTeam2"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/standardMargin8"
+                        android:background="@null"
+                        android:onClick="updateCounter"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/redicon" />
+
+                    <TextView
+                        android:id="@+id/redTextTeam2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@id/yellowTextTeam2"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="@dimen/standardMargin16"
+                        android:text="@string/initCounter"
+                        android:textSize="@dimen/counterTextSize"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/btn_enter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/buttonBeginText" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Chronometer
+                    android:id="@+id/chronometer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/btn_stop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/buttonStopText" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/btn_Reset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:onClick="resetViews"
+                    android:text="@string/buttonResetText" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/btn_Results"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:onClick="showResults"
+                    android:text="@string/buttonResultsText" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
