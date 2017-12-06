@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
                     chronometer.stop();
                     state = 2;
                     startBtn.setText("Resume");
+
                 } else {
                     chronometer.setBase(chronometer.getBase() + SystemClock.elapsedRealtime() - chronometerCounter);
                     chronometer.start();
@@ -104,6 +105,39 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
+        if (savedInstanceState != null){
+            scoreTeam1 = savedInstanceState.getInt("goalsTeam1int");
+            scoreTeam2 = savedInstanceState.getInt("goalsTeam2int");
+            cornersTeam1 = savedInstanceState.getInt("cornersTeam1int");
+            cornersTeam2 = savedInstanceState.getInt("cornersTeam2int");
+            offsidesTeam1 = savedInstanceState.getInt("offsidesTeam1int");
+            offsidesTeam2 = savedInstanceState.getInt("offsidesTeam2int");
+            foulsTeam1 = savedInstanceState.getInt("foulsTeam1int");
+            foulsTeam2 = savedInstanceState.getInt("foulsTeam2int");
+            yellowsTeam1 = savedInstanceState.getInt("yellowsTeam1int");
+            yellowsTeam2 = savedInstanceState.getInt("yellowsTeam2int");
+            redsTeam1 = savedInstanceState.getInt("redsTeam1int");
+            redsTeam2 = savedInstanceState.getInt("redsTeam2int");
+
+            al_goalsTeam1 = savedInstanceState.getParcelableArrayList("goalsTeam1");
+            al_goalsTeam2 = savedInstanceState.getParcelableArrayList("goalsTeam2");
+            al_cornersTeam1 = savedInstanceState.getParcelableArrayList("cornersTeam1");
+            al_cornersTeam2 = savedInstanceState.getParcelableArrayList("cornersTeam2");
+            al_offsidesTeam1 = savedInstanceState.getParcelableArrayList("offsidesTeam1");
+            al_offsidesTeam2 = savedInstanceState.getParcelableArrayList("offsidesTeam2");
+            al_foulsTeam1 = savedInstanceState.getParcelableArrayList("foulsTeam1");
+            al_foulsTeam2 = savedInstanceState.getParcelableArrayList("foulsTeam2");
+            al_yellowsTeam1 = savedInstanceState.getParcelableArrayList("yellowsTeam1");
+            al_yellowsTeam2 = savedInstanceState.getParcelableArrayList("yellowsTeam2");
+            al_redsTeam1 = savedInstanceState.getParcelableArrayList("redsTeam1");
+            al_redsTeam2 = savedInstanceState.getParcelableArrayList("redsTeam2");
+
+
+
+
+            displayAll();
+        }
     }
 
     @Override
@@ -112,17 +146,6 @@ public class MainActivity extends AppCompatActivity {
         // load the current variables in a "saved state"
         // using the "put" command followed by the
         // variable type
-        // ** (putInt for integers)
-        // ** (putString for strings)
-        // ** (putBoolean for booleans)
-        //
-        // choose an id in the savedStateInstance you
-        // want to assign your variables to followed by the
-        // variable you want saved
-        //
-        // ** e.g.
-        // outState.putInt("numberOfCoffees",numberOfCoffees);
-        //                  ID saved State  ,    variable
         outState.putInt("goalsTeam1int",scoreTeam1);
         outState.putInt("goalsTeam2int",scoreTeam2);
         outState.putInt("cornersTeam1int",cornersTeam1);
@@ -157,11 +180,6 @@ public class MainActivity extends AppCompatActivity {
     // along with the button id from which method is called from.
     // The updateCounter method passes the view-object
     // with the 2 methods it contains
-    // .. increment(view);
-    // .. display(view);
-    // eg.
-    // the line increment(view);
-    // calls the increment function and passes along a view object
 
     public void updateCounter(View view) {
         register(view);
@@ -251,11 +269,14 @@ public class MainActivity extends AppCompatActivity {
         return index;
     }
 
-    // display method
-    //
+    // display methods
     // //////////////
     // The display method follows the same principle as
     // the increment method does.
+    //
+    // displayAll
+    /////////////
+    // Display all counters
 
     public void display(View view) {
         switch (view.getId()) {
@@ -309,6 +330,34 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
+
+    private void displayAll() {
+        toChangeText = findViewById(R.id.goalTextTeam1);
+        toChangeText.setText("" + scoreTeam1);
+        toChangeText = findViewById(R.id.goalTextTeam2);
+        toChangeText.setText("" + scoreTeam2);
+        toChangeText = findViewById(R.id.offsideTextTeam1);
+        toChangeText.setText("" + offsidesTeam1);
+        toChangeText = findViewById(R.id.offsideTextTeam2);
+        toChangeText.setText("" + offsidesTeam2);
+        toChangeText = findViewById(R.id.cornerTextTeam1);
+        toChangeText.setText("" + cornersTeam1);
+        toChangeText = findViewById(R.id.cornerTextTeam2);
+        toChangeText.setText("" + cornersTeam2);
+        toChangeText = findViewById(R.id.foulTextTeam1);
+        toChangeText.setText("" + foulsTeam1);
+        toChangeText = findViewById(R.id.foulTextTeam2);
+        toChangeText.setText("" + foulsTeam2);
+        toChangeText = findViewById(R.id.yellowTextTeam1);
+        toChangeText.setText("" + yellowsTeam1);
+        toChangeText = findViewById(R.id.yellowTextTeam2);
+        toChangeText.setText("" + yellowsTeam2);
+        toChangeText = findViewById(R.id.redTextTeam1);
+        toChangeText.setText("" + redsTeam1);
+        toChangeText = findViewById(R.id.redTextTeam2);
+        toChangeText.setText("" + redsTeam2);
+    }
+
 
     //resetViews method
     ///////////////////
