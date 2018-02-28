@@ -23,12 +23,18 @@ public class MainActivity extends AppCompatActivity {
 
     long chronometerCounter;
 
-    private int scoreTeam1, scoreTeam2;
-    private int offsidesTeam1, offsidesTeam2;
-    private int cornersTeam1, cornersTeam2;
-    private int foulsTeam1, foulsTeam2;
-    private int yellowsTeam1, yellowsTeam2;
-    private int redsTeam1, redsTeam2;
+    private int scoreTeam1;
+    private int scoreTeam2;
+    private int offsidesTeam1;
+    private int offsidesTeam2;
+    private int cornersTeam1;
+    private int cornersTeam2;
+    private int foulsTeam1;
+    private int foulsTeam2;
+    private int yellowsTeam1;
+    private int yellowsTeam2;
+    private int redsTeam1;
+    private int redsTeam2;
 
     private int state = 0;
 
@@ -76,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                     chronometer.setBase(SystemClock.elapsedRealtime());
                     chronometer.start();
                     state = 1;
-                    startBtn.setText("Pause");
+                    startBtn.setText(R.string.pause); //pause
                     setGraphstart();
                 }
 
@@ -84,13 +90,13 @@ public class MainActivity extends AppCompatActivity {
                     chronometerCounter = SystemClock.elapsedRealtime();
                     chronometer.stop();
                     state = 2;
-                    startBtn.setText("Resume");
+                    startBtn.setText(R.string.go);
 
                 } else {
                     chronometer.setBase(chronometer.getBase() + SystemClock.elapsedRealtime() - chronometerCounter);
                     chronometer.start();
                     state = 1;
-                    startBtn.setText("Pause");
+                    startBtn.setText(R.string.pause); // pause
                 }
             }
         });
@@ -100,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 chronometer.stop();
-                startBtn.setText("Start");
+                startBtn.setText(R.string.start); //start
                 state = 0;
             }
 
@@ -132,9 +138,6 @@ public class MainActivity extends AppCompatActivity {
             al_yellowsTeam2 = savedInstanceState.getParcelableArrayList("yellowsTeam2");
             al_redsTeam1 = savedInstanceState.getParcelableArrayList("redsTeam1");
             al_redsTeam2 = savedInstanceState.getParcelableArrayList("redsTeam2");
-
-
-
 
             displayAll();
         }
@@ -237,19 +240,27 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.yellowButtonTeam1:
                 yellowsTeam1 += 1;
+                foulsTeam1 += 1;
                 al_yellowsTeam1.add(new Entry(yellowsTeam1, fetchTime()));
+                al_foulsTeam1.add(new Entry(foulsTeam1, fetchTime()));
                 break;
             case R.id.yellowButtonTeam2:
                 yellowsTeam2 +=1;
+                foulsTeam2 += 1;
                 al_yellowsTeam2.add(new Entry(yellowsTeam2, fetchTime()));
+                al_foulsTeam2.add(new Entry(foulsTeam2, fetchTime()));
                 break;
             case R.id.redButtonTeam1:
                 redsTeam1 += 1;
+                foulsTeam1 += 1;
                 al_redsTeam1.add(new Entry(redsTeam1, fetchTime()));
+                al_foulsTeam1.add(new Entry(foulsTeam1, fetchTime()));
                 break;
             case R.id.redButtonTeam2:
                 redsTeam2 += 1;
+                foulsTeam2 += 1;
                 al_redsTeam2.add(new Entry(redsTeam2, fetchTime()));
+                al_foulsTeam2.add(new Entry(foulsTeam2, fetchTime()));
                 break;
         }
     }
@@ -315,18 +326,26 @@ public class MainActivity extends AppCompatActivity {
             case R.id.yellowButtonTeam1:
                 toChangeText = findViewById(R.id.yellowTextTeam1);
                 toChangeText.setText("" + yellowsTeam1);
+                toChangeText = findViewById(R.id.foulTextTeam1);
+                toChangeText.setText("" + foulsTeam1);
                 break;
             case R.id.yellowButtonTeam2:
                 toChangeText = findViewById(R.id.yellowTextTeam2);
                 toChangeText.setText("" + yellowsTeam2);
+                toChangeText = findViewById(R.id.foulTextTeam2);
+                toChangeText.setText("" + foulsTeam2);
                 break;
             case R.id.redButtonTeam1:
                 toChangeText = findViewById(R.id.redTextTeam1);
                 toChangeText.setText("" + redsTeam1);
+                toChangeText = findViewById(R.id.foulTextTeam1);
+                toChangeText.setText("" + foulsTeam1);
                 break;
             case R.id.redButtonTeam2:
                 toChangeText = findViewById(R.id.redTextTeam2);
                 toChangeText.setText("" + redsTeam2);
+                toChangeText = findViewById(R.id.foulTextTeam2);
+                toChangeText.setText("" + foulsTeam2);
                 break;
         }
     }
@@ -467,6 +486,8 @@ public class MainActivity extends AppCompatActivity {
         al_foulsTeam2.add(new Entry(0, 0));
         al_yellowsTeam1.add(new Entry(0, 0));
         al_yellowsTeam2.add(new Entry(0, 0));
+        al_redsTeam1.add(new Entry(0, 0));
+        al_redsTeam2.add(new Entry(0, 0));
     }
 
     // setGraphend method

@@ -20,30 +20,42 @@ import java.util.ArrayList;
 
 public class GraphActivity extends AppCompatActivity {
 
-    private int scoreTeam1, scoreTeam2;
-    private int offsidesTeam1, offsidesTeam2;
-    private int cornersTeam1, cornersTeam2;
-    private int foulsTeam1, foulsTeam2;
-    private int yellowsTeam1, yellowsTeam2;
-    private int redsTeam1, redsTeam2;
+    private int scoreTeam1;
+    private int scoreTeam2;
+    private int offsidesTeam1;
+    private int offsidesTeam2;
+    private int cornersTeam1;
+    private int cornersTeam2;
+    private int foulsTeam1;
+    private int foulsTeam2;
+    private int yellowsTeam1;
+    private int yellowsTeam2;
+    private int redsTeam1;
+    private int redsTeam2;
 
     // create a Linechart
     LineChart lineChart;
 
     // create ArrayList for the values along X-axis
-    ArrayList<String> labels = new ArrayList<String>();
+    ArrayList<String> labels = new ArrayList<>();
 
     // create ArrayList which contains
     // ArrayLists per Graphline
     ArrayList<ILineDataSet> lineDataSets = new ArrayList<>();
 
     // create datasets per line in the Graph
-    LineDataSet dataGoalsTeam1, dataGoalsTeam2;
-    LineDataSet dataOffsidesTeam1, dataOffsidesTeam2;
-    LineDataSet dataCornersTeam1, dataCornersTeam2;
-    LineDataSet dataFoulsTeam1, dataFoulsTeam2;
-    LineDataSet dataYellowsTeam1, dataYellowsTeam2;
-    LineDataSet dataRedsTeam1, dataRedsTeam2;
+    LineDataSet dataGoalsTeam1;
+    LineDataSet dataGoalsTeam2;
+    LineDataSet dataOffsidesTeam1;
+    LineDataSet dataOffsidesTeam2;
+    LineDataSet dataCornersTeam1;
+    LineDataSet dataCornersTeam2;
+    LineDataSet dataFoulsTeam1;
+    LineDataSet dataFoulsTeam2;
+    LineDataSet dataYellowsTeam1;
+    LineDataSet dataYellowsTeam2;
+    LineDataSet dataRedsTeam1;
+    LineDataSet dataRedsTeam2;
 
     // create spinner with its values
     Spinner spinnerChoice;
@@ -56,14 +68,14 @@ public class GraphActivity extends AppCompatActivity {
 
         // Assign the chart in the UI to the
         // LineChart variable
-        lineChart = (LineChart) findViewById(R.id.chart);
+        lineChart = findViewById(R.id.chart);
 
         // Get reference of SpinnerView from layout/main_activity.xml
-        spinnerChoice =(Spinner)findViewById(R.id.fiterSpinner);
+        spinnerChoice = findViewById(R.id.fiterSpinner);
 
         // Create adapter for the spinner & link the spinners adapter
         // to the newly created one
-        ArrayAdapter<String> adapter= new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,items );
+        ArrayAdapter<String> adapter= new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,items );
         spinnerChoice.setAdapter(adapter);
 
         // listener for the choice made from the spinner

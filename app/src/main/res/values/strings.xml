@@ -15,6 +15,14 @@
 
     <string name="filterPrompt">Choose a Filter</string>
 
+    <string name="resetcounter">0</string>
+
+    <string name="start">Start</string>
+    <string name="go">Go</string>
+    <string name="stop">Stop</string>
+    <string name="results">Results</string>
+    <string name="pause">Pause</string>
+
     <string-array name="filterArray">
         <item>Goals</item>
         <item>Corners</item>

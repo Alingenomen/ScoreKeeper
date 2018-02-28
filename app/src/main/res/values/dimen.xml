@@ -10,8 +10,8 @@
     <dimen name="dividerView2">2dp</dimen>
     <dimen name="dividerView1">1dp</dimen>
     <dimen name="goalIconDimension">60dp</dimen>
-    <dimen name="counterTextSize">24dp</dimen>
-    <dimen name="counterTextSizeLandScape">20dp</dimen>
+    <dimen name="counterTextSize">24sp</dimen>
+    <dimen name="counterTextSizeLandScape">20sp</dimen>
     <dimen name="standardMargin64">64dp</dimen>
     <dimen name="offsideIconWidth">80dp</dimen>
     <dimen name="offsideIconHeight">40dp</dimen>

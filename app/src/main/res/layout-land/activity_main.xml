@@ -349,7 +349,7 @@
                         android:background="@null"
                         android:scaleType="fitXY"
                         android:src="@drawable/offsideicon"
-                        android:onClick="updateCounter"/>/>
+                        android:onClick="updateCounter"/>
 
                     <Space
                         android:layout_width="0dp"
